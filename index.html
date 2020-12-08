@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+<body>
+  <style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+    ul{list-style: none;}
+    a{text-decoration: none; color: #000;}
+    body{font-family: 'Montserrat','Noto Sans KR', sans-serif;}
+
+    .header{position: relative; position: fixed;top: 0px;left: 0;width: 100%;z-index: 10; transition: 0.5s ease;}
+    .header.on{top: 20px;}
+
+    .header.on .header_inner{background: #FFF; box-shadow: 0 1px 3px 0 rgba(0,0,0,.12);}
+    .header.on .header_inner a{color: #000; line-height: 90px; }
+    .header.on .menu span{background: #000;}
+    .header.on .logo{background: url(image/logo2.png) no-repeat; background-size: cover; background-position: center;}
+
+    .header_inner .logo{background: url(image/logo.png) no-repeat; background-size: cover; background-position: center;}
+
+    .header.on .lang{display: none;}
+
+    .lang{width: 1200px; margin: auto; overflow: hidden; position: relative;}
+    .lang ul{float:right; padding: 22px 0 10px; }
+    .lang li{float: left; display: block; font-size: 11px;}
+    .lang li a{float: left; display:block; font-size: 11px; color: #ffffffcc;}
+    .lang li:last-child:after{display: block; content:""; width: 1px; height: 11px; background: #ffffffcc;}
+    .lang li a{display:block; padding: 0 8px; color: #ffffffcc;}
+
+
+    .header_inner{position: relative; width: 1200px; height: 90px; margin: auto; overflow: hidden; border: 1px solid #ffffff99;}
+    .logo{background:url(image/logo.png) no-repeat; width: 125px;height: 43px; text-indent: -9999px; position: absolute; top: 50%;margin-top: -21.5px; left: 30px;}
+
+    .header_inner ul:after{content:""; clear: both; display: block;}
+    .header_inner ul{padding-left: 350px; }
+    .header_inner li{position: relative; float:left; font-size: 17px; padding-right: 65px; line-height: 90px;}
+    .header_inner li:last-child{padding-right: 0;}
+    .header_inner li a{color: #FFF; font-weight: 20;}
+
+    .menu{position: absolute; right: 20px; top: 50%; margin-top: -21.5px; width: 40px;height: 40px;}
+    .menu span{display: block; height: 3px; background: #fff; margin: 7px 0;}
+    .menu_gnb{position: fixed; top: -100%; left: 0; width: 100%; height: 99%; background: #CCC; z-index: 99;}
+    .menu_gnb span{float: right;}
+    .close{background: url(https://smcdn.smtown.com/image/pc/icon/close.png) no-repeat;
+    position: absolute; top: 35px; right: 35px; padding: 30px;}
+    .close_gnb ul{width: 1200px; margin: auto; padding-top: 130px; overflow: hidden;}
+    .close_gnb li{float: left; width: 20%; padding: 0 10px; text-align: center;}
+    .close_gnb .title{font-size: 30px; padding-bottom: 30px;}
+    .close_gnb li p{font-size: 16px; padding: 10px 0;}
+
+    .close_gnb .num{font-size: 40px; padding: 50px 0 0 220px;}
+  </style>
+
+  <header>
+    <div class="header">
+      <div class="lang">
+        <ul>
+          <li><a href="">HOME</a></li>
+          <li><a href="">KOR</a></li>
+        </ul>
+      </div>
+      <div class="header_inner">
+        <div class="logo"><a href="">한국조폐공사</a></div>
+
+        <ul>
+          <li><a href="">기관소개</a></li>
+          <li><a href="">사업ㆍR&D</a></li>
+          <li><a href="">열린경영</a></li>
+          <li><a href="">뉴스룸</a></li>
+          <li><a href="">고객참여</a></li>
+          <li><a href="">정보공개</a></li>
+        </ul>
+        
+        <div class="menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+     
+    </div><!--header-->
+
+    <div class="menu_gnb">
+    <span class="close"></span>
+    <div class="close_header">
+      <div class="close_gnb">
+        <ul class="nav">
+          <li class="tab">
+            <a href= ""><p class="title">기관소개</p></a>
+            <p>일반현황</p>
+            <p>CEO</p>
+            <p>조직안내</p>
+            <p>CI</p>
+            <p>인재채용</p>
+            <p>오시는길</p>
+          </li>
+          
+          <li class="tab">
+            <a href= ""><p class="title">사업ㆍR&D</p></a>
+            <p>인쇄</p>
+            <p>압인</p>
+            <p>ID</p>
+            <p>브랜드보호</p>
+            <p>수출</p>
+            <p>R&D</p>
+          </li>
+          <li class="tab">
+            <a href= ""><p class="title">열린경영</p></a>
+            <p>경영공시</p>
+            <p>동반성장</p>
+            <p>사회공헌</p>
+            <p>윤리경영</p>
+            <p>입찰정보</p>
+          </li>
+          <li class="tab">
+            <a href= ""><p class="title">뉴스룸</p></a>
+            <p></p>
+            <p>공지사항</p>
+            <p>보도자료</p>
+            <p>채용소식</p>
+            <p>홍보</p>
+          </li>
+          <li class="tab">
+            <a href= ""><p class="title">고객참여</p></a>
+            <p>카드발급조회</p>
+            <p>증명서발급</p>
+            <p>견학신청</p>
+            <p>고객의 소리</p>
+            <p>온라인민원</p>
+            <p>행정신고</p>
+            <p>고객의소리</p>
+            <p>공모/이벤트</p>
+          </li>
+          <!-- <li class="tab">
+            <a href= ""><p class="title">정보공개</p></a>
+            <p>정보공개제도?</p>
+            <p>사전정보공개</p>
+            <p>정보목록</p>
+            <p>정보공개</p>
+            <p>공공데이터</p>
+            <p>사업실명제</p>
+          </li> -->
+        </ul>
+      </div><!--close_gnb-->
+    </div><!--close_header-->
+
+    </div>
+  </header>
+
+  <style>
+  .main_visual{background: url('https://www.komsco.com/popup/kor/visual/29fb7423-a9e1-47d3-828f-98735903d787.jpg') no-repeat; background-size: cover; height: 100vh; display: table; width: 100%;}
+  /*vh: 브라우저 높이창을 100%, 넓이 창은 vw*/
+
+  .experdb{width: 1200px; display: table-cell; vertical-align: middle;}
+  .experdb_inner{width: 1200px;margin: auto;}
+  .experdb_inner span{font-size: 18px; color: #FFF;}
+  .experdb_inner h2{font-size: 80px; padding: 30px 0; font-weight: normal; color: #FFF;}
+  .experdb_inner strong{display: block; font-size: 20px; color: #FFF; padding-bottom: 25px;}
+  .experdb_inner p{font-size: 20px; padding: 10px 0 50px; color: #ffffffcc;}
+  .experdb_inner .db_button{display: inline-block; transition: 0.5s ease; height: 50px; line-height: 50px; text-align: center; border: 1px solid #FFF; font-size: 18px; color: #FFF; padding: 0 40px 0 40px;}
+  .experdb_inner .db_button:hover{background: #FFF; color: #000;}
+  </style>
+  <div class="main_visual">
+    <div class="experdb">
+      <div class="experdb_inner">
+        <span>KOMSCO STORY</span>
+        <h2>NO.1</h2>
+        <strong>세계 최고의 조폐·인증·보안 서비스 기업으로 도약합니다.</strong>
+        <p>한국조폐공사는 우수한 기술력으로 전 세계 40여 개국에 은행권, 주화,<br>제지제품(은행권용지), 특수잉크, 여권 등을 수출하고 있습니다.</p>
+        <a href="https://www.youtube.com/watch?v=ckCSjehx-44" class="db_button">홍보영상 바로가기</a>
+      </div>
+    </div>
+  </div><!--main_vis-->
+  <style>
+  .research{position: relative; width: 100%; height: 100%; padding: 80px 0;}
+  .research{background: url('https://www.ssfutures.com/resources/images/main/bg_research.png') no-repeat 50% 0; background-size: cover;}
+
+  .inner_research{ width:1200px; margin: 0 auto;}
+
+  .inner_research:after{content:""; clear: both; display: block;}
+  .inner_research h2{font-size: 32px; line-height: 50px;}
+  .inner_research h2 a{float:right; font-size: 14px; position: relative; padding-right: 30px;}
+  .inner_research h2 a::after{content: ""; position: absolute;  top: 50%; margin-top: -10px; right: 0; width: 20px; height: 20px; display: block; background: url(image/more.png) no-repeat; background-size: 100%; background-position: center; }
+  .inner_research img{width:24px; height: 24px;margin-left: 5px;}
+
+  .inner_research li{position: relative; float:left; margin: 25px 15px 0 0; background: #FFF;}
+  .inner_research li:hover .research_btn{background: #0a4594; color: #FFF;}
+  .inner_research li a{padding: 40px 30px;display: block;font-size: 18px; }
+
+  .inner_research li:last-child{margin-right: 0;}
+
+  .research .research_info{position: absolute; bottom: 40px; left: 30px;}
+
+  .research_wrap {position: relative; width:286px; height: 330px; overflow: hidden;}
+  .research_wrap strong{font-size: 16px; color: #067fd9;}
+  .research_wrap p{ padding: 18px 0 48px; font-size: 20px; font-weight: bold;}
+  .research_wrap p img{width: 16px; height: 16px; padding-top: 5px;}
+  .research_wrap span{font-size: 13px; color: #333;}
+  .research_wrap span:last-child:before{border-left: 1px solid #e4e8eb;}
+
+  .research_btn{width: 39.5px; height: 24px; font-size: 12px; font-weight: bold; line-height: 24px; border: 2px solid #0a4594;
+            color: #0a4594; display: block; text-align: center; margin-top: 30px; transition: 0.3s ease;}
+
+  .research_btn:hover{background: #0a4594; color: #FFF;}
+  </style>
+
+  <div class="main">
+
+      <div class="research">
+        <div class="inner_research">
+          <h2>KOMSCO NEWS<a href="">더보기</a></h2>
+            <ul>
+              <li data-aos="fade-up" data-aos-duration="800">
+                <div class="research_wrap">
+                  <a href="">
+                    <strong>공지사항</strong>
+                    <p>조폐공사,‘지갑속 아트 갤러리 카드형 메달’출시<img src="image/icon.png" alt=""></p>
+                    <div class="research_info">
+                      <span>한국조폐공사</span>
+                      <span>2020-10-25</span>
+                      <div class=research_btn>NEW</div>
+                    </div>
+                  </a>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-duration="800">
+              <div class="research_wrap">
+                <a href="">
+                  <strong>공지사항</strong>
+                  <p>조폐공사, 모바일 지역사랑상품권 ‘착(Chak)’ 웹접근성 인증마크 획득<img src="image/icon.png" alt=""></p>
+                  <div class="research_info">
+                    <span>한국조폐공사</span>
+                    <span>2020-10-22</span>
+                    <div class=research_btn>NEW</div>
+                  </div>
+                </a>
+              </div>
+              </li>
+              <li data-aos="fade-up" data-aos-duration="800">
+              <div class="research_wrap">
+              <a href="">
+                <strong>공지사항</strong>
+                <p>성심당, ‘순도 99.99’ 골드바 피낭시에 케익 판매<img src="image/icon.png" alt=""></p>
+                <div class="research_info">
+                  <span>한국조폐공사</span>
+                  <span>2020-09-28</span>
+                  <div class=research_btn>NEW</div>
+                </div>
+              </a>
+              </div>
+              </li>
+              <li data-aos="fade-up" data-aos-duration="800">
+              <div class="research_wrap">
+              <a href="">
+              <strong>공지사항</strong>
+              <p>조폐공사, 이달말 우체국서 ‘카드형 지역사랑상품권’ 서비스 시작<img src="image/icon.png" alt=""></p>
+              <div class="research_info">
+                <span>한국조폐공사</span>
+                <span>2020-10-20</span>
+                <div class=research_btn>NEW</div>
+              </div>
+              </a>
+              </div>
+              </li>
+          </ul>
+          </div>
+        </div><!--inner_research-->
+      </div><!--research-->
+
+      <style>
+      .Business_box{position: relative; width: 1200px; padding: 117px 0;  margin: auto;}
+      .Business{overflow: hidden;}
+      .Business h2{font-size: 32px; padding-bottom: 55px;}
+      .Business_inner{position: absolute; width: calc(50% - 5px); height: 633px;}
+      .Business_inner{background: url(image/business.png) no-repeat;  }
+      .Business_inner strong{ display: block; font-size: 30px; font-weight: bold; padding: 45px 0 5px 50px;}
+      .Business_inner p{width: 218.5px; height: 53.5px; padding: 100px 0 0 50px; font-size: 22px; line-height: 22px; color: #FFF;}
+
+      .showcase{position: relative; width: calc(50% - 5px); float:right; margin: auto; }
+      .Business_box .img_wrap{width:50%; height: 257.5px; }
+      .Business_box .text_wrap{width: 50%; height: 257.5px;   background: url(image/silver.jpg) no-repeat; background-size: 100% auto;}
+      /* .Business_box .text_wrap a{display: block; line-height: 50px; text-align: center; color: #FFF; margin: 50px auto 0;} */
+      .Business_box .text_wrap strong{display: block; font-size: 22px; padding-top: 90px; text-align: center;}
+      .Business_box .text_wrap p{font-size: 15px; padding-top: 12px; line-height: 25px; text-align: center;}
+      .Business_box .left{float:left;}
+      .Business_box .right{float:right;}
+
+
+      .showcase .img_wrap.right{background: url(https://pbs.twimg.com/media/D_BK_KOXYAAuoIz?format=jpg&name=small) no-repeat; background-size: cover; background-position: left;}
+      .showcase .img_wrap.left{background: url(image/business3.jpg) no-repeat; background-size: cover; background-position: center;}
+
+      </style>
+
+      <div class="Business_box">
+        <div class="Business">
+          <h2>KOMSCO BUSINESS</h2>
+           <div class="Business_inner">
+              <a href=""><p>자세히보기</p></a>
+          </div>
+
+          <div class="showcase">
+            <ul>
+              <li>
+                <div class="img_wrap right"></div>
+                <div class="text_wrap left">
+              </li>
+
+            <li>
+              <div class="img_wrap left"></div>
+              <div class="text_wrap right">
+              </div>
+            </li>
+          </ul>
+        </div><!--product_wrap-->
+      </div><!--product-->
+    </div><!--product_box-->
+
+    <style>
+    .program_box{ position: relative; margin: auto; width: 1200px; padding: 30px 50px 130px;}
+    .program_box h2{ font-size: 35px; padding-bottom: 28px;}
+
+    .program{ overflow: hidden;}
+    .program_left{float:left; width: 224px; margin: auto;}
+    .program_left li{height: 45.5px; }
+    .program_left li a{font-size: 19px; line-height: 45px; color: #9C9C9C; padding: 12px 18px 12px;}
+    .program_left li.on{background: #000; color: #FFF;}
+    .program_left li.on a{color: #FFF;}
+
+    .program_right{float: right; width: 752px; margin: auto;}
+    .program_right .pro_box{display: none;}
+    .program_right .pro_box.on{display: block;}
+
+
+    .program_inner:after{content:""; clear: both; display: block;}
+    .program_inner ul{float: right; margin: auto;}
+    .program_inner li{line-height: 40px; border-bottom: 1px solid #CCC;}
+    .program_inner strong{ font-size: 22px; padding: 10px 5px; }
+    .program_inner span{font-size: 16px; color: #666;padding-left: 25px;}
+
+    </style>
+
+    <div class="program_box">
+      <h2>KOMSCO VALUE</h2>
+      <div class="program">
+          <div class="program_left">
+            <ul>
+              <li class="on"><a href="javascript:void(0)">은행권</a></li>
+              <li><a href="javascript:void(0)">수표</a></li>
+              <li><a href="javascript:void(0)">우표 및 채권</a></li>
+              <li><a href="javascript:void(0)">상품권</a></li>
+            </ul>
+          </div>
+
+          <div class="program_right">
+            <div class="pro_box pb01 on">은행권은 국가경제 흐름의 중요한 매개체로 현재 천원권, 오천원권, 만원권, 오만원권 4종으로 발행되고 있습니다. 최신 인쇄시설을 보유한 화폐본부에서 인쇄, 검사 및 완공에 이르는 전 과정이 철저한 보안과 품질 계수 확인 하에 이루어지고 있습니다.
+최근에는 현용 은행권 개선 방안을 마련하여 차세대 은행권 발행에 대비하고 있으며, 위폐방지 캠페인 확대 및 유관기관과의 공조를 통해 글로벌 수준으로 위폐방지 역량을 유지하고 있습니다. 또한, 기념화폐 상시 판매제도를 도입하는 등 고객 요구에 맞춰 다양한 제도를 개선하고, 기념화폐 활성화 전략을 수립하여 화폐문화산업으로서의 육성 기반을 마련하였습니다.</div>
+            <div class="pro_box pb02 ">
+              첨단 인쇄시설과 기술을 보유한 공사는 세계 최고 수준의 화폐 제조기술력과 첨단 보안요소를 적용하여 수표 및 상품권 등을 만들고 있습니다.
+특히, 수표는 위변조방지를 위해 은화를 삽입하고 평판 잠상을 넣어 천연색 복사기 등에 의한 재현이 불가능 하도록 제조하고 있습니다.<br>
+수표는 5색 또는 6색의 다색 평판인쇄기에 의해 인쇄되고 있으며 수표 교환의 컴퓨터화를 위해 MICR 방식을 채택하고 있습니다.
+            </div>
+            <div class="pro_box pb03">
+              우표는 우정사업본부에서 도안과 데이터를 제공받아 화상 작업, 타각 작업, 도금 작업을 하여 인쇄하는 그라비어 방식과 요판인쇄판, 습식인쇄판을 만들어 인쇄하는 평, 요판 인쇄방식이 있습니다.
+
+우리공사는 향기우표, 스티커우표, 변색우표, 야광우표, 열반응우표, 광감응성우표 등 특수 요소를 활용한 우표를 제조하고 있으며, 마름모 무늬, 물결 무늬, 삼각형 모양의 특수 천공을 적용하여 우표의 다양화 및 활성화에 노력을 하고 있습니다.
+            </div>
+            <div class="pro_box pb04">
+              독보적인 미래 핵심 기술을 통하여 세계 보안시장 선도기업으로 힘차게 도약하는 한국조폐공사.
+세계 최고의 수준의 화폐 제조 기술력으로 상품권을 제조하며, 전통시장 상품권 제조로 지역경제 활성화에 기여하고 있습니다.
+            </div>
+          </div><!--program_right-->
+        </div><!--program-->
+    </div><!--program_box-->
+
+    <style>
+    .contents{position: relative; overflow: hidden; }
+    .contents_inner{position: relative;}
+    .contents h3{text-align: center; font-size: 30px; padding: 40px 0;}
+
+    .news{width: 50%; float:left; background: #EEE; padding: 80px 0;}
+    .news_inner{width: 600px; float: right; padding-right: 30px;}
+
+    .news li{position: relative; height: 100px; margin-bottom: 10px; background: #FFF; padding-right: 50px;}
+    .news li a{font-size: 20px; }
+    .news strong{display: block; font-size: 42px; color: #336791;}
+    .news span{display: block; font-size: 15px; color: #336791;}
+    .news img{position: absolute; top: 50%; right: 30px; margin-top: -6.5px;}
+
+    .news .date{position: absolute; top: 0; left: 0; padding: 15px 30px; text-align: center;}
+    .news .text{padding-left: 120px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; line-height: 100px;}
+  </style>
+
+    <div class="contents">
+      <div class="contents_inner">
+      <div class="news">
+        <div class="news_inner">
+        <h3>NOTICE</h3>
+        <ul>
+          <li>
+            <a href="">
+              <div class="date">
+                <strong>17</strong>
+                <span>2020.09</span>
+              </div>
+              <p class="text">공공기관 동반성장 체감도조사 관련 개인정보 제3자 제공사항 알림</p>
+              <img src="image/next.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="date">
+                <strong>09</strong>
+                <span>2020.09</span>
+              </div>
+              <p class="text">대국민 윤리인권 콘텐츠 공모전 개최</p>
+              <img src="image/next.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="date">
+                <strong>01</strong>
+                <span>2020.09</span>
+              </div>
+              <p class="text">정품인증 사업 브랜드 디자인 및 홍보영상 공모전 수상작 발표</p>
+              <img src="image/next.png" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="date">
+                <strong>24</strong>
+                <span>2020.07</span>
+              </div>
+              <p class="text">공공기관 청렴도 측정 관련 개인정보 제3자 제공사항 알림</p>
+              <img src="image/next.png" alt="">
+            </a>
+          </li>
+        </ul>
+        </div>
+      </div><!--news-->
+
+      <style>
+      .partner_inner{width: 600px; float: left; padding: 80px 0 80px 30px;}
+
+      .partner_inner:after{content:""; clear: both; display: block;}
+
+      .partner_inner{position: relative; }
+      .partner_inner ul:after{content:""; clear: both; display: block;}
+      .partner_inner ul{margin: auto;}
+      .partner_inner li{position: relative; width: 50%; float: left; height: 432px; text-align: center; display: table;}
+      .partner_inner li:first-child{background: url('http://www.koreamint.com/data/base/imgs/main/serviceLeftBG.png') no-repeat; background-position: center; background-size: cover;}
+      .partner_inner a{font-weight: bold; color: #FFF; text-shadow: 2px; display: table-cell; vertical-align: middle; font-size: 24px;}
+      .partner_inner li:last-child{background: url('https://museum.komsco.com/images/site/museum/content/greeting_bg2.jpg') no-repeat;background-position: center; background-size: cover;}
+      </style>
+
+
+
+        <div class="partner_inner">
+          <h3>SERVICE</h3>
+          <ul>
+            <li><a href="http://www.koreamint.com/main/index.do">한국조폐공사 쇼핑몰</a></li>
+            <li><a href="https://museum.komsco.com/museum/contents/14">화폐박물관</a></li>
+          </ul>
+        </div>
+
+        </div><!--contents_inner-->
+      </div><!--contents--->
+    </div><!--main-->
+
+    <style>
+    .footer{position: relative;  padding: 30px 0;  overflow: hidden; background: #EEE;}
+    .footer_inner{width: 1200px; margin: auto;}
+
+    .footer h6{font-size: 11px; padding-top: 15px;}
+
+    .footer_left{width: 50%; float: left; font-size: 14px; border-right: 1px solid #e0e0e0;}
+
+    .footer_left .name{padding-top: 15px;}
+    .footer_left p{padding: 10px 0; line-height: 15px;}
+    .footer_left strong{line-height: 28px; padding-right: 40px; }
+    .footer_left img{position: absolute;}
+
+    .footer_left span{display: block; line-height: 30px;}
+
+    </style>
+
+    <footer>
+      <div class="footer">
+        <div class="footer_inner">
+          <div class="footer_left">
+        <ul>
+          <li>
+            <strong><a href="">회사소개</a></strong>
+            <strong><a href="">개인정보처리방침</a></strong>
+            <strong><a href="">오시는길</a></strong>
+          </li>
+
+        <li>
+          <span class="name">KOMSCO</span>
+          <p>세계최고의 조폐·인증·보안 서비스 기업</p>
+          <span class="addr">대전광역시 유성구 과학로 80-67(가정동)</span>
+        </li>
+      </ul>
+
+          <h6>Copyrightⓒ KOMSCO. All Rights Reserved.</h6>
+        </div><!--footer_left-->
+
+        <style>
+        .footer_right{float: right; width: 50%;}
+
+        .footer_right:after{content:""; clear: both; display: block;}
+        .footer_right ul{float: left; padding-left: 90px;}
+        .footer_right li{float: left; padding-right: 65px;}
+        .footer_right p{font-size: 18px;}
+        .footer_right strong{font-size: 23px; display: block; padding: 10px 0;}
+        .footer_right span{font-size: 12px; display: block;}
+
+        .sns{position: relative; top: 140px; right: 300px;}
+        .sns ul{overflow: hidden;}
+        .sns li{float: left; padding-right: 15px;}
+        .sns img{width: 30px;}
+        .sns a{margin-right: 5px;}
+
+        .footer_logo img{position: absolute; top: 50px; right: 80px;}
+        </style>
+
+        <div class="footer_right">
+          <ul>
+            <li>
+              <p>대표전화</p>
+              <strong>1577-4321</strong>
+              <span>MON~FRI : 09:00 ~ 17:00</span>
+            </li>
+          </ul>
+
+          <div class="sns">
+            <ul>
+              <li><a href=""><img src="image/facebook.png" alt="페이스북"></a></li>
+              <li><a href=""><img src="image/twitter.png" alt="트위터"></a></li>
+              <li><a href=""><img src="image/instagram.png" alt="인스타그램"></a></li>
+              <li><a href=""><img src="image/youtube.png" alt="유튜브"></a></li>
+            </ul>
+          </div><!--sns-->
+
+          <div class="footer_logo"><img src="image/logo2.png" alt="footerlogo"></div>
+
+        </div><!--footer_right-->
+
+      </div><!--footer_inner-->
+
+    </div><!--footer-->
+    </footer>
+
+
+    <script type="text/javascript">
+      $(function(){
+        AOS.init();
+      $(window).scroll(function() {
+        scroll = $(window).scrollTop();
+
+        if(scroll >= 10){
+          $('.header').addClass('on');
+        }else{
+          $('.header').removeClass('on');
+        }
+      })
+
+      $('.program_left li').click(function(){
+        $('.program_left li').removeClass('on');
+        $(this).addClass('on');
+
+        index = $(this).index() +1;
+
+        $('.pro_box').removeClass('on');
+        $('.pb0' + index).addClass('on');
+        })
+
+        $(".menu").click(function(){
+             $('.menu_gnb').animate({'top':'0'}, 500);
+        })
+        $(".close").click(function(){
+             $('.menu_gnb').animate({'top':'-100%'}, 500);
+        });
+
+    })//지우지말기
+    </script>
+
+</body>
+</html>
